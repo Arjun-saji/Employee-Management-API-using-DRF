@@ -43,7 +43,7 @@ class EmployeeRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
 
 
 	def delete(self,request,*args,**kwargs):
-		response=super.get_queryset(request,*args,**kwargs)
+		response=super().delete(request,*args,**kwargs)
 		if status==204:
 			return Response({"message":"Employee Delete Sucessfully"},status=status.HTTP_204_NO_CONTENT)
 		return response
