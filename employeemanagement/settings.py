@@ -24,9 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-a*#)r7cld^xx8)bsrz#q_ta#s@m@@!e(^opz$@(#)ozf2+8f-j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['employee-management-api-heaz.onrender.com']
+
+# ALLOWED_HOSTS = ['employee-management-api-heaz.onrender.com']
+# ALLOWED_HOSTS = ['Arjun13.pythonanywhere.com']
+ALLOWED_HOSTS = ["*"]
 
 
 
@@ -44,9 +47,11 @@ INSTALLED_APPS = [
     'drf_yasg',
     'usersapp',
     'employee',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,6 +60,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+CORS_ALLOW_ALL_ORIGINS = True
+
 
 ROOT_URLCONF = 'employeemanagement.urls'
 
@@ -86,6 +93,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
 
 
 # Password validation
